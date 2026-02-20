@@ -5,7 +5,7 @@ import { Menu, X, ChevronDown, Building2, Leaf, Cpu, Users } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/app/components/ui/button';
 import { ContactModal } from '@/app/components/ContactModal';
-import logoImage from '@/assets/a77b2fa456cdd05fb4b2465473c995357e5c2a77.png';
+import logoImage from '@/assets/fivalogo.png';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -205,7 +205,7 @@ export function Navigation() {
               </AnimatePresence>
             </motion.div>
 
-            {navItems.map((item, index) => (
+            {navItems.map((item: any, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
@@ -251,7 +251,7 @@ export function Navigation() {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(item.id);
+                      scrollToSection(item?.id);
                     }}
                     className={`px-4 py-2 transition-all duration-300 relative group ${
                       activeSection === item.id 
@@ -374,7 +374,7 @@ export function Navigation() {
             })}
           </motion.div>
 
-          {navItems.map((item, index) => (
+          {navItems.map((item: any, index) => (
             <motion.div
               key={item.name}
               initial={{ opacity: 0, x: -20 }}
@@ -416,7 +416,7 @@ export function Navigation() {
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item.id);
+                    scrollToSection(item?.id);
                   }}
                   className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 relative overflow-hidden group ${
                     activeSection === item.id 

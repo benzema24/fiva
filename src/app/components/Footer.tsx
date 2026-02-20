@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router';
 import { motion } from 'motion/react';
 import { MapPin, Mail, Phone, Linkedin, Facebook, Instagram, Twitter, Clock, Building2, Globe, ArrowUp } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
-import logoImage from '@/assets/a77b2fa456cdd05fb4b2465473c995357e5c2a77.png';
+import logoImage from '@/assets/fivalogo.png';
 
 const locations = [
   {
