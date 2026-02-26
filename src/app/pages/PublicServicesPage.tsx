@@ -92,10 +92,10 @@ export function PublicServicesPage() {
                   className="bg-card border border-border rounded-xl p-6 hover:border-[#1E40AF]/50 transition-all duration-300"
                 >
                   <div className="w-14 h-14 bg-gradient-to-br from-[#1E40AF]/10 to-[#1E3A8A]/5 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="h-7 w-7 text-[#1E40AF]" />
+                    <Icon className="h-7 w-7 text-[#1E40AF] dark:text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-foreground">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-foreground dark:text-white">{feature.title}</h3>
+                  <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">{feature.description}</p>
                 </motion.div>
               );
             })}
@@ -151,8 +151,8 @@ export function PublicServicesPage() {
                 <div className="w-12 h-12 bg-gradient-to-br from-[#1E40AF] to-[#1E3A8A] rounded-lg flex items-center justify-center text-white font-bold text-xl mb-4">
                   {index + 1}
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-foreground">{phase.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{phase.description}</p>
+                <h3 className="text-lg font-bold mb-2 text-foreground dark:text-white">{phase.title}</h3>
+                <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{phase.description}</p>
               </div>
             ))}
           </motion.div>
@@ -176,8 +176,8 @@ export function PublicServicesPage() {
                 'Continuous monitoring and optimization'
               ].map((factor, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-[#1E40AF] flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">{factor}</span>
+                  <CheckCircle2 className="h-6 w-6 text-[#1E40AF] dark:text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground dark:text-white">{factor}</span>
                 </div>
               ))}
             </div>

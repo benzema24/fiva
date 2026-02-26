@@ -7,11 +7,13 @@ import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import sspLogo from '@/assets/2039c78195e975d926c2e792c415fa215c0733c9.png';
 import streamlineSynergyLogo from '@/assets/db00baa0fbbf7d96883b2857d74836eb78aa7011.png';
 import hyperEdgeSolutionsLogo from '@/assets/ed848c70bae20a003d755922f90abbbee51de7ad.png';
+import hyperEdgeSolutionsLogoDark from '@/assets/46d948d255aef3bc7a2033b134d3707e60f5d0d2.png';
 import sgssLogo from '@/assets/555322bafc5b081d65cba7bfb52d8a85b2e13033.png';
 import globecoreHoldingLogo from '@/assets/45c0f4718c90e314189b4f2c703e109f8216a6af.png';
 import healthifyTechnologiesLogo from '@/assets/aedb0be12f3414a759ad014be92144b0e1a7319a.png';
 import parentcareLogo from '@/assets/5c1a2f1d83ba28a10a5a9d4d031050784b332105.png';
 import fivaRecruitmentLogo from '@/assets/03ef0002056eaff8ba09e77b5f112e8c7042bf5e.png';
+import fivaRecruitmentLogoDark from '@/assets/c8c4b5e5190af82b9e3a6eae39dc98bdb8bcd718.png';
 
 interface Company {
   name: string;
@@ -32,7 +34,7 @@ const companies: Company[] = [
     description: 'Talent acquisition and workforce solutions across key strategic industries.',
     website: 'https://fivarecruitment.com/',
     gradient: 'from-blue-500 to-cyan-500',
-    logo: fivaRecruitmentLogo,
+    logo: fivaRecruitmentLogoDark,
     industry: 'Recruitment',
     founded: '2015',
     employees: '150',
@@ -44,7 +46,7 @@ const companies: Company[] = [
     description: 'Advanced technology solutions and enterprise digital transformation services.',
     website: 'http://hyperedgesolutions.net/',
     gradient: 'from-green-500 to-emerald-500',
-    logo: hyperEdgeSolutionsLogo,
+    logo: hyperEdgeSolutionsLogoDark,
     industry: 'Technology',
     founded: '2018',
     employees: '100',
@@ -269,19 +271,18 @@ export function CompaniesPage() {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-2 px-6 py-3 mb-8 rounded-full border backdrop-blur-sm relative overflow-hidden group
                          bg-gradient-to-r from-blue-950/10 via-amber-500/5 to-blue-950/10 
-                         dark:from-amber-600/20 dark:via-blue-600/15 dark:to-amber-600/20
-                         border-blue-900/20 dark:border-amber-500/40
-                         shadow-lg shadow-blue-900/10 dark:shadow-amber-500/20"
+                         dark:from-[#B8C5D6]/20 dark:via-blue-600/15 dark:to-[#B8C5D6]/20
+                         border-blue-900/20 dark:border-[#B8C5D6]/40
+                         shadow-lg shadow-blue-900/10 dark:shadow-[#B8C5D6]/20"
             >
               <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000
-                              bg-gradient-to-r from-transparent via-amber-500/10 to-transparent
-                              dark:via-amber-400/20" 
+                              bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                              dark:via-[#B8C5D6]/20" 
               />
               <Sparkles className="h-5 w-5 relative z-10
-                                   text-amber-600 dark:text-amber-400
+                                   text-amber-600 dark:text-[#B8C5D6]
                                    drop-shadow-[0_0_8px_rgba(217,119,6,0.4)] 
-                                   dark:drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" 
-              />
+                                   dark:drop-shadow-[0_0_8px_rgba(184,197,214,0.6)]" /> 
               <span className="text-base font-medium relative z-10 text-blue-950 dark:text-foreground">
                 Who we operate through
               </span>
@@ -292,7 +293,7 @@ export function CompaniesPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-foreground"
+              className="font-bold mb-6 leading-tight text-foreground text-[88px]"
             >
               Our Companies
             </motion.h1>
@@ -348,7 +349,7 @@ export function CompaniesPage() {
                         ? 'bg-emerald-50/80 text-emerald-600 border border-emerald-200/50 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-800/30' 
                         : company.status === 'Launch'
                         ? 'bg-sky-50/80 text-sky-600 border border-sky-200/50 dark:bg-sky-950/30 dark:text-sky-400 dark:border-sky-800/30'
-                        : 'bg-amber-50/80 text-amber-600 border border-amber-200/50 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-800/30'
+                        : 'bg-amber-50/80 text-amber-600 border border-amber-200/50 dark:bg-amber-950/30 dark:text-[#C8C8C8] dark:border-amber-800/30'
                     }`}>
                       <div className="flex items-center gap-1">
                         <div className={`w-1 h-1 rounded-full ${
@@ -372,11 +373,26 @@ export function CompaniesPage() {
                     >
                       <div className={`relative w-16 h-16 rounded-xl bg-gradient-to-br ${company.gradient} overflow-hidden shadow-sm group-hover/logo:shadow-md group-hover/logo:scale-105 transition-all duration-500 opacity-90`}>
                         {company.logo ? (
-                          <ImageWithFallback
-                            src={company.logo}
-                            alt={`${company.name} logo`}
-                            className="w-full h-full object-contain p-2 bg-white dark:bg-gray-900"
-                          />
+                          <>
+                            {/* Light mode logo */}
+                            <ImageWithFallback
+                              src={company.logo}
+                              alt={`${company.name} logo`}
+                              className="w-full h-full object-contain p-2 bg-white dark:hidden"
+                            />
+                            {/* Dark mode logo - use special logos for specific companies */}
+                            <ImageWithFallback
+                              src={
+                                company.name === 'FIVA Recruitment' 
+                                  ? fivaRecruitmentLogoDark 
+                                  : company.name === 'HYPER EDGE SOLUTIONS'
+                                  ? hyperEdgeSolutionsLogoDark
+                                  : company.logo
+                              }
+                              alt={`${company.name} logo`}
+                              className="hidden dark:block w-full h-full object-contain p-2 bg-white"
+                            />
+                          </>
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-white/90">
                             <span className="text-xl font-bold">
@@ -386,7 +402,7 @@ export function CompaniesPage() {
                         )}
                         {/* Animated Overlay */}
                         <motion.div
-                          className="absolute inset-0 bg-white/0 group-hover/logo:bg-white/10"
+                          className="absolute inset-0 bg-white/0 group-hover/logo:bg-white/10 dark:bg-white/0 dark:group-hover/logo:bg-white/20"
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.3 }}
                         />

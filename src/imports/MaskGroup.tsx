@@ -1,4 +1,4 @@
-import imgRectangle1 from "figma:asset/6c13670fed51d89af7b1f360620ffc297829db02.png";
+import imgRectangle1 from "@/assets/6c13670fed51d89af7b1f360620ffc297829db02.png";
 
 export default function MaskGroup() {
   return (

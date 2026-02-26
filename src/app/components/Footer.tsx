@@ -3,7 +3,9 @@ import { useNavigate, useLocation } from 'react-router';
 import { motion } from 'motion/react';
 import { MapPin, Mail, Phone, Linkedin, Facebook, Instagram, Twitter, Clock, Building2, Globe, ArrowUp } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
-import logoImage from '@/assets/fivalogo.png';
+import { useTheme } from '@/app/components/ThemeProvider';
+import logoLightMode from '@/assets/a77b2fa456cdd05fb4b2465473c995357e5c2a77.png';
+import logoDarkMode from '@/assets/16063aa2c3611568b5192a7b3288d8d3f2a1e734.png';
 
 const locations = [
   {
@@ -27,7 +29,7 @@ const locations = [
     flag: '🇦🇪',
     email: 'uae@fivainvestment.com',
     mapUrl: 'https://maps.google.com/?q=Addax+Tower,+Reem+Island,+Abu+Dhabi,+UAE',
-    officeType: 'Regional Hub',
+    officeType: 'Headquarters',
     timezone: 'GST (UTC+4)',
     region: 'Middle East',
     phone: '+971 2 123 4567',
@@ -40,7 +42,7 @@ const locations = [
     flag: '🇲🇹',
     email: 'malta@fivainvestment.com',
     mapUrl: 'https://maps.google.com/?q=Tower+Business+Centre,+Swatar,+Birkirkara,+Malta',
-    officeType: 'Headquarters',
+    officeType: 'Regional Hub',
     timezone: 'CET (UTC+1)',
     region: 'Southern Europe',
     phone: '+356 2123 4567',
@@ -144,6 +146,9 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const { theme } = useTheme();
+  const logoImage = theme === 'dark' ? logoDarkMode : logoLightMode;
+
   return (
     <footer className="bg-card border-t border-border relative overflow-hidden">
       {/* Animated Background */}
@@ -208,11 +213,11 @@ export function Footer() {
                 className="flex items-center gap-3 group cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-600/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-600/20 group-hover:to-orange-500/20 transition-colors duration-300">
-                  <Instagram className="h-5 w-5 text-amber-600" />
+                  <Instagram className="h-5 w-5 text-amber-600 dark:text-[#B8C5D6]" />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Instagram</p>
-                  <p className="text-foreground group-hover:text-amber-600 transition-colors">
+                  <p className="text-foreground group-hover:text-amber-600 dark:group-hover:text-[#B8C5D6] transition-colors">
                     fiva.investment
                   </p>
                 </div>
@@ -245,19 +250,31 @@ export function Footer() {
             <div className="pt-4 border-t border-border/50">
               <h4 className="text-sm font-bold mb-3 text-foreground">Quick Links</h4>
               <div className="flex flex-wrap gap-2">
-                {['Home', 'Services', 'About', 'Testimonials', 'Contact'].map((item, index) => (
+                {[
+                  { label: 'Our Verticals', path: '/', section: 'verticals' },
+                  { label: 'Our Companies', path: '/companies' },
+                  { label: 'Why FIVA', path: '/', section: 'about' },
+                  { label: 'News', path: '/news' },
+                  { label: 'Careers', path: '/careers' }
+                ].map((item, index) => (
                   <motion.button
-                    key={item}
+                    key={item.label}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    onClick={() => scrollToSection(item.toLowerCase())}
+                    onClick={() => {
+                      if (item.section) {
+                        scrollToSection(item.section);
+                      } else if (item.path) {
+                        navigate(item.path);
+                      }
+                    }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-3 py-1 rounded-full bg-secondary hover:bg-primary/10 hover:text-primary text-sm text-muted-foreground transition-all duration-300"
                   >
-                    {item}
+                    {item.label}
                   </motion.button>
                 ))}
               </div>
@@ -273,7 +290,7 @@ export function Footer() {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-2 mb-6">
-              <Globe className="h-5 w-5 text-primary" />
+              <Globe className="h-5 w-5 text-primary dark:text-white" />
               <h4 className="text-xl font-bold text-foreground">Global Presence</h4>
               <span className="text-xs text-muted-foreground ml-2">({locations.length} Locations)</span>
             </div>
@@ -372,9 +389,9 @@ export function Footer() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="flex-1 px-2 py-1 rounded bg-primary/10 hover:bg-primary/20 text-primary text-[10px] font-medium transition-colors flex items-center justify-center gap-1"
+                        className="flex-1 px-2 py-1 rounded bg-primary/10 hover:bg-primary/20 text-primary dark:text-white text-[10px] font-medium transition-colors flex items-center justify-center gap-1"
                       >
-                        <MapPin className="h-2.5 w-2.5" />
+                        <MapPin className="h-2.5 w-2.5 dark:text-white" />
                         Map
                       </motion.a>
                       <motion.a
@@ -384,7 +401,7 @@ export function Footer() {
                         onClick={(e) => e.stopPropagation()}
                         className="px-2 py-1 rounded border border-primary/20 hover:border-primary/40 text-primary text-[10px] font-medium transition-colors flex items-center justify-center"
                       >
-                        <Mail className="h-2.5 w-2.5" />
+                        <Mail className="h-2.5 w-2.5 dark:text-white" />
                       </motion.a>
                       <motion.a
                         href={`tel:${location.phone}`}

@@ -91,11 +91,11 @@ function DeliveryModelSection({
                     : 'bg-card border-2 border-[#1E40AF]/30 group-hover:border-[#1E40AF] group-hover:bg-[#1E40AF]/5'
                   }
                 `}>
-                  <StepIcon className={`h-7 w-7 ${isActive ? 'text-white' : 'text-[#1E40AF]'} transition-colors duration-300`} />
+                  <StepIcon className={`h-7 w-7 ${isActive ? 'text-white' : 'text-[#1E40AF] dark:text-white'} transition-colors duration-300`} />
                 </div>
                 
                 {/* Step Number */}
-                <div className={`text-xs font-bold mb-1 transition-colors duration-300 ${isActive ? 'text-[#1E40AF]' : 'text-muted-foreground'}`}>
+                <div className={`text-xs font-bold mb-1 transition-colors duration-300 ${isActive ? 'text-[#1E40AF]' : 'text-muted-foreground dark:text-gray-300'}`}>
                   STEP {idx + 1}
                 </div>
                 
@@ -128,7 +128,7 @@ function DeliveryModelSection({
                     <div className="w-10 h-10 bg-[#1E40AF]/10 rounded-lg flex items-center justify-center">
                       {(() => {
                         const IconComponent = deliveryModel[expandedStep].icon;
-                        return <IconComponent className="h-5 w-5 text-[#1E40AF]" />;
+                        return <IconComponent className="h-5 w-5 text-[#1E40AF] dark:text-white" />;
                       })()}
                     </div>
                     <h4 className="text-xl font-bold text-foreground">{deliveryModel[expandedStep].step}</h4>
@@ -670,10 +670,10 @@ export function PublicServicesCapabilities() {
                       <div className={`w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         isSelected 
                           ? 'bg-gradient-to-br from-[#1E40AF] to-[#1E3A8A] scale-105' 
-                          : 'bg-gradient-to-br from-[#1E40AF]/10 to-[#1E3A8A]/5 group-hover:scale-105'
+                          : 'bg-gradient-to-br from-[#1E40AF]/20 to-[#1E3A8A]/10 dark:from-[#1E40AF]/30 dark:to-[#1E3A8A]/20 group-hover:scale-105'
                       }`}>
                         <Icon className={`h-7 w-7 transition-colors duration-300 ${
-                          isSelected ? 'text-white' : 'text-[#1E40AF]'
+                          isSelected ? 'text-white' : 'text-[#1E40AF] dark:text-[#4A90E2]'
                         }`} />
                       </div>
                     </div>
@@ -682,7 +682,7 @@ export function PublicServicesCapabilities() {
                     <div className={`ml-auto text-xs font-bold px-3 py-1 rounded-full transition-all duration-300 ${
                       isSelected 
                         ? 'bg-[#1E40AF] text-white' 
-                        : 'bg-[#1E40AF]/10 text-[#1E40AF]/60 group-hover:bg-[#1E40AF]/20 group-hover:text-[#1E40AF]'
+                        : 'bg-[#1E40AF]/10 text-[#1E40AF]/60 dark:bg-[#1E40AF]/20 dark:text-[#4A90E2] group-hover:bg-[#1E40AF]/20 group-hover:text-[#1E40AF]'
                     }`}>
                       {String(index + 1).padStart(2, '0')}
                     </div>
@@ -706,14 +706,14 @@ export function PublicServicesCapabilities() {
                     <span className={`text-sm font-semibold transition-all duration-300 ${
                       isSelected 
                         ? 'text-[#1E40AF]' 
-                        : 'text-[#1E40AF]/60 group-hover:text-[#1E40AF]'
+                        : 'text-[#1E40AF]/60 dark:text-[#4A90E2] group-hover:text-[#1E40AF]'
                     }`}>
                       {isSelected ? 'Selected' : 'View Details'}
                     </span>
                     <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
                       isSelected 
                         ? 'bg-[#1E40AF] text-white' 
-                        : 'bg-[#1E40AF]/10 text-[#1E40AF] group-hover:bg-[#1E40AF]/20 group-hover:translate-x-1'
+                        : 'bg-[#1E40AF]/10 text-[#1E40AF] dark:bg-[#1E40AF]/20 dark:text-[#4A90E2] group-hover:bg-[#1E40AF]/20 group-hover:translate-x-1'
                     }`}>
                       <ArrowRight className="h-4 w-4" />
                     </div>
@@ -830,15 +830,15 @@ export function PublicServicesCapabilities() {
                     {selectedData.sections.solutions.map((solution, idx) => (
                       <div key={idx} className="bg-card border border-border rounded-xl p-6 hover:border-[#1E40AF]/30 hover:shadow-md transition-all duration-300">
                         <div className="flex items-start gap-3 mb-3">
-                          <CheckCircle2 className="h-5 w-5 text-[#1E40AF] flex-shrink-0 mt-0.5" />
-                          <h4 className="text-lg font-bold text-foreground">{solution.title}</h4>
+                          <CheckCircle2 className="h-5 w-5 text-[#1E40AF] dark:text-white flex-shrink-0 mt-0.5" />
+                          <h4 className="text-lg font-bold text-foreground dark:text-white">{solution.title}</h4>
                         </div>
-                        <p className="text-muted-foreground text-sm pl-8">{solution.description}</p>
+                        <p className="text-muted-foreground dark:text-gray-300 text-sm pl-8">{solution.description}</p>
                         <div className="space-y-2 mt-4">
                           {solution.features.map((feature, idx) => (
                             <div key={idx} className="flex items-start gap-3">
-                              <CheckCircle2 className="h-5 w-5 text-[#1E40AF] flex-shrink-0 mt-0.5" />
-                              <span className="text-foreground">{feature}</span>
+                              <CheckCircle2 className="h-5 w-5 text-[#1E40AF] dark:text-white flex-shrink-0 mt-0.5" />
+                              <span className="text-foreground dark:text-white">{feature}</span>
                             </div>
                           ))}
                         </div>
@@ -861,9 +861,9 @@ export function PublicServicesCapabilities() {
                     {selectedData.sections.technology.map((tech, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-[#1E40AF]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Lock className="h-5 w-5 text-[#1E40AF]" />
+                          <Lock className="h-5 w-5 text-[#1E40AF] dark:text-white" />
                         </div>
-                        <span className="text-foreground font-medium">{tech}</span>
+                        <span className="text-foreground dark:text-white font-medium">{tech}</span>
                       </div>
                     ))}
                   </div>

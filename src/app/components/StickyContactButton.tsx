@@ -279,27 +279,7 @@ export function StickyContactButton() {
               ></motion.div>
 
               {/* Energy Lines */}
-              <div className="absolute inset-0 rounded-full overflow-hidden opacity-0 group-hover:opacity-30">
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent"
-                    style={{
-                      top: `${30 + i * 20}%`,
-                      width: '100%',
-                    }}
-                    animate={{
-                      x: ['-100%', '200%'],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      delay: i * 0.3,
-                      ease: 'linear',
-                    }}
-                  ></motion.div>
-                ))}
-              </div>
+              {/* Removed animation effect */}
             </Button>
           </motion.div>
         </motion.div>

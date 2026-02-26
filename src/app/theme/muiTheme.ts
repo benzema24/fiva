@@ -5,22 +5,28 @@ export const createCustomTheme = (mode: 'light' | 'dark') => {
     palette: {
       mode,
       primary: {
-        main: mode === 'dark' ? '#3B82F6' : '#1E40AF',
-        light: '#60A5FA',
-        dark: '#1E3A8A',
+        main: mode === 'dark' ? '#2A3F5C' : '#223A5C',
+        light: '#3E5068',
+        dark: '#0F2A4A',
       },
       secondary: {
-        main: '#f0b51d',
-        light: '#F59E0B',
-        dark: '#D97706',
+        main: '#C4993B',
+        light: '#D4BA7A',
+        dark: '#A67D2A',
       },
       background: {
-        default: mode === 'dark' ? '#0A0A0A' : '#FFFFFF',
-        paper: mode === 'dark' ? '#1A1A1A' : '#F9FAFB',
+        default: mode === 'dark' ? '#0A1628' : '#FDFCFA',
+        paper: mode === 'dark' ? '#11203A' : '#F7F5F0',
       },
       text: {
-        primary: mode === 'dark' ? '#F9FAFB' : '#0A0A0A',
-        secondary: mode === 'dark' ? '#9CA3AF' : '#6B7280',
+        primary: mode === 'dark' ? '#FFFFFF' : '#0F2A4A',
+        secondary: mode === 'dark' ? '#B8C5D6' : '#3E5068',
+      },
+      divider: mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.12)',
+      accent: {
+        main: '#C4993B',
+        light: '#D4BA7A',
+        dark: '#A67D2A',
       },
     },
     typography: {

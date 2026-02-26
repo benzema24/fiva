@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, useMemo, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, useMemo, ReactNode, FC, createElement } from 'react';
 import { ThemeProvider as MUIThemeProvider, CssBaseline } from '@mui/material';
 import { createCustomTheme } from '../theme/muiTheme';
 
@@ -12,12 +12,12 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// Wrapper component to isolate Figma props
-function ThemeWrapper({ children }: { children: ReactNode }) {
-  return <div style={{ display: 'contents' }}>{children}</div>;
+interface ThemeProviderProps {
+  children: ReactNode;
+  [key: string]: any; // Allow any props to be passed (including Figma data attributes)
 }
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+export function ThemeProvider({ children, ...figmaProps }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
@@ -32,15 +32,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const muiTheme = useMemo(() => createCustomTheme(theme), [theme]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-      <ThemeWrapper>
-        <MUIThemeProvider theme={muiTheme}>
-          <CssBaseline />
-          {children}
-        </MUIThemeProvider>
-      </ThemeWrapper>
-    </ThemeContext.Provider>
+  // Use createElement to programmatically create MUI ThemeProvider without JSX
+  // This prevents Figma props from being forwarded
+  const muiProvider = useMemo(
+    () => createElement(
+      MUIThemeProvider,
+      { theme: muiTheme },
+      createElement(CssBaseline),
+      children
+    ),
+    [muiTheme, children]
+  );
+
+  return createElement(
+    ThemeContext.Provider,
+    { value: { theme, setTheme, toggleTheme } },
+    muiProvider
   );
 }
 

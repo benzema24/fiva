@@ -61,6 +61,7 @@ export function InteractiveBackground() {
               r="1"
               fill="currentColor"
               className="text-primary"
+              initial={{ opacity: 0.1, r: 1 }}
               animate={{
                 opacity: distance < maxDistance ? opacity : 0.1,
                 r: distance < maxDistance ? scale : 1,

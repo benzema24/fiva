@@ -214,7 +214,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-gradient-to-r from-blue-950/50 via-amber-500/10 to-blue-950/50 dark:from-amber-600/10 dark:via-blue-600/5 dark:to-amber-600/10 border border-blue-900/20 dark:border-amber-500/20 rounded-xl p-6 text-center"
+            className="bg-gradient-to-r from-blue-950/50 via-amber-500/10 to-blue-950/50 dark:from-[#B8C5D6]/10 dark:via-blue-600/5 dark:to-[#B8C5D6]/10 border border-blue-900/20 dark:border-[#B8C5D6]/20 rounded-xl p-6 text-center"
           >
             <div className="inline-flex w-12 h-12 bg-gradient-to-br from-[#f0b51d] to-[#d9a019] rounded-full items-center justify-center mb-3">
               <Globe className="h-6 w-6 text-white" />

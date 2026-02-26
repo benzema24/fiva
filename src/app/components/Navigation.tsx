@@ -5,7 +5,9 @@ import { Menu, X, ChevronDown, Building2, Leaf, Cpu, Users } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/app/components/ui/button';
 import { ContactModal } from '@/app/components/ContactModal';
-import logoImage from '@/assets/fivalogo.png';
+import { useTheme } from './ThemeProvider';
+import logoImageLight from '@/assets/cd6ffe2bf2847f0f1e8c1cc62d40ade99af448c0.png';
+import logoImageDark from '@/assets/16063aa2c3611568b5192a7b3288d8d3f2a1e734.png';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +17,7 @@ export function Navigation() {
   const [isVerticalsDropdownOpen, setIsVerticalsDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,11 +112,14 @@ export function Navigation() {
               onClick={() => scrollToSection('home')}
               className="hover:opacity-80 transition-opacity"
             >
-              <img 
-                src={logoImage} 
-                alt="FIVA Investment" 
-                className="h-8 w-auto"
-              />
+              <div className="h-8 w-auto flex items-center">
+                <img 
+                  src={theme === 'dark' ? logoImageDark : logoImageLight} 
+                  alt="FIVA Investment" 
+                  className="h-8 w-auto object-contain"
+                  style={{ maxHeight: '32px', height: '32px' }}
+                />
+              </div>
             </button>
           </motion.div>
 
@@ -135,8 +141,8 @@ export function Navigation() {
                 }}
                 className={`px-4 py-2 transition-all duration-300 relative group flex items-center gap-1 ${
                   activeSection === 'services' || location.pathname.includes('/services/')
-                    ? 'text-primary' 
-                    : 'text-foreground/80 hover:text-primary'
+                    ? 'text-primary dark:text-white' 
+                    : 'text-foreground/80 hover:text-primary dark:hover:text-white'
                 }`}
               >
                 Our Verticals
@@ -160,7 +166,7 @@ export function Navigation() {
                       const Icon = service.icon;
                       const colorClasses = 
                         service.name === 'Public Services' 
-                          ? 'text-primary group-hover:text-primary' 
+                          ? 'text-primary dark:text-[#4A90E2] group-hover:text-primary dark:group-hover:text-[#4A90E2]' 
                           : service.name === 'Energy & Climate'
                           ? 'text-green-600 dark:text-green-400 group-hover:text-green-600 dark:group-hover:text-green-400'
                           : service.name === 'Technology & Innovation'
@@ -205,7 +211,7 @@ export function Navigation() {
               </AnimatePresence>
             </motion.div>
 
-            {navItems.map((item: any, index) => (
+            {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
@@ -221,8 +227,8 @@ export function Navigation() {
                     }}
                     className={`px-4 py-2 transition-all duration-300 relative group ${
                       location.pathname === item.path
-                        ? 'text-primary' 
-                        : 'text-foreground/80 hover:text-primary'
+                        ? 'text-primary dark:text-white' 
+                        : 'text-foreground/80 hover:text-primary dark:hover:text-white'
                     }`}
                   >
                     {item.name}
@@ -238,8 +244,8 @@ export function Navigation() {
                     }}
                     className={`px-4 py-2 transition-all duration-300 relative group ${
                       location.pathname === `/${item.id}`
-                        ? 'text-primary' 
-                        : 'text-foreground/80 hover:text-primary'
+                        ? 'text-primary dark:text-white' 
+                        : 'text-foreground/80 hover:text-primary dark:hover:text-white'
                     }`}
                   >
                     {item.name}
@@ -251,12 +257,12 @@ export function Navigation() {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(item?.id);
+                      scrollToSection(item.id);
                     }}
                     className={`px-4 py-2 transition-all duration-300 relative group ${
                       activeSection === item.id 
-                        ? 'text-primary' 
-                        : 'text-foreground/80 hover:text-primary'
+                        ? 'text-primary dark:text-white' 
+                        : 'text-foreground/80 hover:text-primary dark:hover:text-white'
                     }`}
                   >
                     {item.name}
@@ -374,7 +380,7 @@ export function Navigation() {
             })}
           </motion.div>
 
-          {navItems.map((item: any, index) => (
+          {navItems.map((item, index) => (
             <motion.div
               key={item.name}
               initial={{ opacity: 0, x: -20 }}
@@ -416,7 +422,7 @@ export function Navigation() {
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item?.id);
+                    scrollToSection(item.id);
                   }}
                   className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 relative overflow-hidden group ${
                     activeSection === item.id 

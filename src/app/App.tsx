@@ -4,7 +4,6 @@ import { Toaster } from '@/app/components/ui/sonner';
 import { ThemeProvider } from '@/app/components/ThemeProvider';
 import { Navigation } from '@/app/components/Navigation';
 import { Footer } from '@/app/components/Footer';
-import { StickyContactButton } from '@/app/components/StickyContactButton';
 import { InteractiveBackground } from '@/app/components/InteractiveBackground';
 import { HomePage } from '@/app/pages/HomePage';
 import { AboutPage } from '@/app/pages/AboutPage';
@@ -48,7 +47,6 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
             <Footer />
-            <StickyContactButton />
           </Box>
           <Toaster position="top-right" />
         </Box>

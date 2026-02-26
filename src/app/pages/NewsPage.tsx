@@ -125,14 +125,14 @@ export function NewsPage() {
             >
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm relative overflow-hidden group
                            bg-gradient-to-r from-blue-950/10 via-amber-500/5 to-blue-950/10 
-                           dark:from-amber-600/20 dark:via-blue-600/15 dark:to-amber-600/20
-                           border-blue-900/20 dark:border-amber-500/40
-                           shadow-lg shadow-blue-900/10 dark:shadow-amber-500/20">
+                           dark:from-[#B8C5D6]/20 dark:via-blue-600/15 dark:to-[#B8C5D6]/20
+                           border-blue-900/20 dark:border-[#B8C5D6]/40
+                           shadow-lg shadow-blue-900/10 dark:shadow-[#B8C5D6]/20">
                 <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000
-                                bg-gradient-to-r from-transparent via-amber-500/10 to-transparent
-                                dark:via-amber-400/20" 
+                                bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                                dark:via-[#B8C5D6]/20" 
                 />
-                <Newspaper className="h-5 w-5 relative z-10 text-amber-600 dark:text-amber-400 drop-shadow-[0_0_8px_rgba(217,119,6,0.4)] dark:drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                <Newspaper className="h-5 w-5 relative z-10 text-amber-600 dark:text-[#B8C5D6] drop-shadow-[0_0_8px_rgba(217,119,6,0.4)] dark:drop-shadow-[0_0_8px_rgba(184,197,214,0.6)]" />
                 <span className="text-sm font-medium relative z-10 text-blue-950 dark:text-foreground">Latest Updates</span>
               </div>
             </motion.div>

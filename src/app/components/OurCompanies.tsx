@@ -335,7 +335,7 @@ export function OurCompanies() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: 1,
-                      color: 'primary.main',
+                      color: (theme) => theme.palette.mode === 'dark' ? '#FFFFFF' : 'primary.main',
                       fontWeight: 600,
                       transition: 'gap 0.3s',
                     }}
