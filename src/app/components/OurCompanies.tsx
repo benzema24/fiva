@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Sparkles, Building2, Leaf, Cpu, Users, ArrowRight } from 'lucide-react';
+import { Sparkles, Building2, Leaf, Cpu, Users, Briefcase, ArrowRight } from 'lucide-react';
 import { Box, Typography, ButtonBase } from '@mui/material';
 import { useParallax } from '@/app/hooks/useParallax';
 import { useNavigate } from 'react-router';
@@ -15,6 +15,15 @@ interface Vertical {
 }
 
 const verticals: Vertical[] = [
+  {
+    name: 'Consulting Services',
+    description: 'Strategic advisory and intermediation for complex business transactions and institutional engagement.',
+    path: '/services/consulting-services',
+    icon: Briefcase,
+    gradient: 'linear-gradient(135deg, #9333ea 0%, #a855f7 100%)',
+    bgColor: 'rgba(168, 85, 247, 0.1)',
+    iconColor: '#9333ea'
+  },
   {
     name: 'Public Services',
     description: 'Transforming public sector delivery through strategic consulting and innovative solutions.',
@@ -38,9 +47,9 @@ const verticals: Vertical[] = [
     description: 'Advancing digital transformation and next-generation technology solutions.',
     path: '/services/technology-innovation',
     icon: Cpu,
-    gradient: 'linear-gradient(135deg, #0891b2 0%, #3b82f6 100%)',
-    bgColor: 'rgba(8, 145, 178, 0.1)',
-    iconColor: '#0891b2'
+    gradient: 'linear-gradient(135deg, #a855f7 0%, #9333ea 100%)',
+    bgColor: 'rgba(147, 51, 234, 0.1)',
+    iconColor: '#a855f7'
   },
   {
     name: 'Human Capital & Society',
@@ -186,17 +195,17 @@ export function OurCompanies() {
               lineHeight: 1.7,
             }}
           >
-            Four specialized verticals delivering transformative impact across critical global sectors.
+            Five specialized verticals delivering transformative impact across critical global sectors.
           </Typography>
         </Box>
 
-        {/* Verticals Grid - 2x2 Layout */}
+        {/* Verticals Grid - Responsive Layout */}
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
             gap: 3,
-            maxWidth: 1024,
+            maxWidth: 1280,
             mx: 'auto',
             mb: 8,
           }}

@@ -11,6 +11,7 @@ import { PublicServicesPage } from '@/app/pages/PublicServicesPage';
 import { EnergyClimatePage } from '@/app/pages/EnergyClimatePage';
 import { TechnologyInnovationPage } from '@/app/pages/TechnologyInnovationPage';
 import { HumanCapitalPage } from '@/app/pages/HumanCapitalPage';
+import { ConsultingServicesPage } from '@/app/pages/ConsultingServicesPage';
 import { CareersPage } from '@/app/pages/CareersPage';
 import { NewsPage } from '@/app/pages/NewsPage';
 import { ArticleDetailPage } from '@/app/pages/ArticleDetailPage';
@@ -41,6 +42,7 @@ export default function App() {
               <Route path="/services/energy-climate" element={<EnergyClimatePage />} />
               <Route path="/services/technology-innovation" element={<TechnologyInnovationPage />} />
               <Route path="/services/human-capital" element={<HumanCapitalPage />} />
+              <Route path="/services/consulting-services" element={<ConsultingServicesPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/news" element={<NewsPage />} />
               <Route path="/news/:id" element={<ArticleDetailPage />} />

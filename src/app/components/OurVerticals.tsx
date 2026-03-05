@@ -18,7 +18,8 @@ import {
   GraduationCap,
   Baby,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Briefcase
 } from 'lucide-react';
 import { useParallax } from '@/app/hooks/useParallax';
 
@@ -49,6 +50,32 @@ interface Vertical {
 }
 
 const verticals: Vertical[] = [
+  {
+    id: 'consulting-services',
+    icon: Briefcase,
+    emoji: '💼',
+    title: 'Consulting Services',
+    subtitle: 'Strategic advisory and intermediation for complex business transactions and institutional engagement.',
+    tagline: 'Consulting Services',
+    description: 'FIVA Investment provides strategic business intermediation, cross-border deal facilitation, and senior-level advisory services. We act as trusted intermediaries between businesses, investors, and strategic partners across jurisdictions, facilitating high-value negotiations and supporting market entry strategies with discretion and expertise.',
+    stats: [
+      { value: '150+', label: 'Deals Facilitated' },
+      { value: '30+', label: 'Jurisdictions' },
+      { value: '95%', label: 'Success Rate' }
+    ],
+    features: [
+      { text: 'Strategic Business Intermediation' },
+      { text: 'Cross-Border Deal Facilitation' },
+      { text: 'Commercial Negotiation & Representation' },
+      { text: 'Market Entry & Expansion Advisory' },
+      { text: 'Investment & Partnership Structuring' }
+    ],
+    benefits: [
+      { text: 'Confidential senior-level advisory' },
+      { text: 'Global network and expertise' },
+      { text: 'Risk mitigation and value creation' }
+    ]
+  },
   {
     id: 'public-services',
     icon: Building2,

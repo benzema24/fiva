@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Building2, Leaf, Cpu, Users } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Leaf, Cpu, Users, Briefcase } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/app/components/ui/button';
 import { ContactModal } from '@/app/components/ContactModal';
@@ -87,6 +87,7 @@ export function Navigation() {
     { name: 'Energy & Climate', path: '/services/energy-climate', icon: Leaf },
     { name: 'Technology & Innovation', path: '/services/technology-innovation', icon: Cpu },
     { name: 'Human Capital & Society', path: '/services/human-capital', icon: Users },
+    { name: 'Consulting Services', path: '/services/consulting-services', icon: Briefcase },
   ];
 
   return (
@@ -170,8 +171,10 @@ export function Navigation() {
                           : service.name === 'Energy & Climate'
                           ? 'text-green-600 dark:text-green-400 group-hover:text-green-600 dark:group-hover:text-green-400'
                           : service.name === 'Technology & Innovation'
-                          ? 'text-blue-600 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-400'
-                          : 'text-orange-600 dark:text-orange-400 group-hover:text-orange-600 dark:group-hover:text-orange-400';
+                          ? 'text-purple-600 dark:text-purple-400 group-hover:text-purple-600 dark:group-hover:text-purple-400'
+                          : service.name === 'Human Capital & Society'
+                          ? 'text-orange-600 dark:text-orange-400 group-hover:text-orange-600 dark:group-hover:text-orange-400'
+                          : 'text-gray-600 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-400';
                       
                       const bgColorClasses =
                         service.name === 'Public Services' 
@@ -179,8 +182,10 @@ export function Navigation() {
                           : service.name === 'Energy & Climate'
                           ? 'bg-green-500/10'
                           : service.name === 'Technology & Innovation'
-                          ? 'bg-blue-500/10'
-                          : 'bg-orange-500/10';
+                          ? 'bg-purple-500/10'
+                          : service.name === 'Human Capital & Society'
+                          ? 'bg-orange-500/10'
+                          : 'bg-gray-500/10';
                       
                       return (
                         <motion.button
@@ -344,8 +349,10 @@ export function Navigation() {
                   : service.name === 'Energy & Climate'
                   ? 'text-green-600 dark:text-green-400'
                   : service.name === 'Technology & Innovation'
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : 'text-orange-600 dark:text-orange-400';
+                  ? 'text-purple-600 dark:text-purple-400'
+                  : service.name === 'Human Capital & Society'
+                  ? 'text-orange-600 dark:text-orange-400'
+                  : 'text-gray-600 dark:text-gray-400';
               
               const bgColorClasses =
                 service.name === 'Public Services' 
@@ -353,8 +360,10 @@ export function Navigation() {
                   : service.name === 'Energy & Climate'
                   ? 'bg-green-500/10'
                   : service.name === 'Technology & Innovation'
-                  ? 'bg-blue-500/10'
-                  : 'bg-orange-500/10';
+                  ? 'bg-purple-500/10'
+                  : service.name === 'Human Capital & Society'
+                  ? 'bg-orange-500/10'
+                  : 'bg-gray-500/10';
               
               return (
                 <button
